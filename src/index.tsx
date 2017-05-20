@@ -1,33 +1,27 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import 'semantic-ui-css/semantic.min.css'
-import './index.css';
+
 import { Grid, Container } from 'semantic-ui-react'
 import { createStore } from 'redux'
 import { reducers } from './reducers/index'
 import { StoreState } from './types/index'
 import { Provider } from 'react-redux'
 
-const uuid = require('uuid/v4')
-
+import Storage from './storage/Storage'
 import LabelList from './containers/LabelList'
 import ToDoList from './containers/ToDoList'
 import AddToDo from './containers/AddToDo'
 
-const inititalState = {
-  tasks: [{
-    completed: false,
-    title: 'show task list',
-    id: uuid()
-  }, {
-    completed: true,
-    title: 'show label list',
-    id: uuid()
-  }
-  ],
-  currentLabel: 'Inbox'
+import 'semantic-ui-css/semantic.min.css'
+import './index.css';
+
+function newStore() {
+  let store = createStore<StoreState>(reducers, Storage.load());
+  store.subscribe(() => { Storage.save(store.getState()) })
+  return store;
 }
-const store = createStore<StoreState>(reducers, inititalState)
+
+const store = newStore()
 
 ReactDOM.render(
   <Provider store={store}>

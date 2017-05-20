@@ -1,4 +1,7 @@
-
+export const INITIAL_STATE: StoreState = {
+    currentLabel: 'Inbox',
+    tasks: []
+}
 export interface StoreState {
     currentLabel: string;
     tasks: ToDo[];
@@ -7,5 +10,5 @@ export interface StoreState {
 export interface ToDo {
     completed: boolean;
     title: string;
-    id:number;
+    id: number;
 }
