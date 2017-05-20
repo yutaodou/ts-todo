@@ -3,16 +3,17 @@ import { List, Label } from 'semantic-ui-react';
 
 export interface Props {
     labels: Array<string>;
+    currentLabel: string
 }
 
-function LabelList({ labels = [] }: Props) {
+function LabelList({ labels = [], currentLabel }: Props) {
     return (
         <List>
             {
                 labels.map(label =>
-                    (<List.Item key={label}>
-                        <Label>{label}</Label>
-                    </List.Item>)
+                    <List.Item key={label} className='label-item'>
+                        <Label >{label}</Label>
+                    </List.Item>
                 )
             }
         </List>

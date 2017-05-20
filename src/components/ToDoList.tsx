@@ -15,7 +15,7 @@ export default function ({ tasks = [], onToggleTask }: Props) {
         <List>
             {
                 tasks.map(task =>
-                    <List.Item key={task.id} onClick = { () => onToggleTask(task.id) }>
+                    <List.Item key={task.id} onClick = { () => onToggleTask(task.id) } className='todo-item'>
                         <Checkbox checked={task.completed} label={task.title}/>
                     </List.Item>
                 )
