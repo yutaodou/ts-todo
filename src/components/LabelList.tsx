@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {List, Label} from 'semantic-ui-react';
+import { List, Label } from 'semantic-ui-react';
 
 export interface Props {
     labels: Array<string>;
@@ -8,7 +8,13 @@ export interface Props {
 function LabelList({ labels = [] }: Props) {
     return (
         <List>
-            {labels.map(label => <List.Item><Label>{label}</Label></List.Item>)}
+            {
+                labels.map(label =>
+                    (<List.Item key={label}>
+                        <Label>{label}</Label>
+                    </List.Item>)
+                )
+            }
         </List>
     );
 }

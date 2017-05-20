@@ -13,3 +13,11 @@ export function changeLabel(label: string) {
         label
     }
 }
+
+
+export function toggleTask(id:string){
+    return {
+        type: Constants.TOGGLE_TASK,
+        task: id
+    }
+}

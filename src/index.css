@@ -3,11 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-.todo-item.checkbox {
-  display: block;
-  margin: 10px
-}
 
-.checked.todo-item {
+.checked.checkbox label, .checked.checkbox label:hover {
+  color: #AAA;
   text-decoration: line-through
 }

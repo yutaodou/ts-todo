@@ -9,7 +9,6 @@
     "@types/react": "^15.0.24",
     "@types/react-dom": "^15.5.0",
     "@types/react-redux": "^4.4.40",
-    "guid": "^0.0.12",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

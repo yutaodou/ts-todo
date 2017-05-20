@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { Grid, Container } from 'semantic-ui-react'
 import { createStore } from 'redux'
-import { reducers } from './reducers/index'
+import reducers from './reducers/index'
 import { StoreState } from './types/index'
 import { Provider } from 'react-redux'
 
