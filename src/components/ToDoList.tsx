@@ -9,7 +9,7 @@ export interface Props {
 export default function ({ tasks = [] }: Props) {
     return (
         <List>
-            {tasks.map(task => <Checkbox checked={task.completed} label={task.title} className='todo-item'/>)}
+            {tasks.map(task => <Checkbox key={task.id} checked={task.completed} label={task.title} className='todo-item'/>)}
         </List>
     )
 }

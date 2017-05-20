@@ -8,16 +8,21 @@ import { reducers } from './reducers/index'
 import { StoreState } from './types/index'
 import { Provider } from 'react-redux'
 
+const uuid = require('uuid/v4')
+
 import LabelList from './containers/LabelList'
 import ToDoList from './containers/ToDoList'
+import AddToDo from './containers/AddToDo'
 
 const inititalState = {
   tasks: [{
     completed: false,
-    title: 'show task list'
+    title: 'show task list',
+    id: uuid()
   }, {
     completed: true,
-    title: 'show label list'
+    title: 'show label list',
+    id: uuid()
   }
   ],
   currentLabel: 'Inbox'
@@ -37,6 +42,9 @@ ReactDOM.render(
         <Grid.Column width={3}>
           task details
       </Grid.Column>
+        <Grid.Row >
+          <AddToDo />
+        </Grid.Row>
       </Grid>
     </Container>
   </Provider>,
