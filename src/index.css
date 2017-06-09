@@ -4,6 +4,28 @@ body {
   font-family: sans-serif;
 }
 
+#root {
+  height: 100%;
+}
+
+.main-content {
+  height: 100%;
+}
+.label-list {
+  background-color: blue;
+}
+.task-list {
+  background-color: #AAA;
+}
+
+.task-detail {
+  background-color: #ccc;
+}
+
+.label-item {
+  cursor: pointer;
+}
+
 .checked.checkbox label, .checked.checkbox label:hover {
   color: #AAA;
   text-decoration: line-through

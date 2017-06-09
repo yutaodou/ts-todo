@@ -25,22 +25,21 @@ const store = newStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <Container >
-      <Grid centered padded divided >
-        <Grid.Column width={3}>
+    <Container className="main-content">
+      <Grid >
+        <Grid.Column width={3} className="label-list">
           <LabelList />
         </Grid.Column>
-        <Grid.Column width={6}>
+        <Grid.Column width={9} className="task-list">
           <ToDoList />
         </Grid.Column>
-        <Grid.Column width={3}>
+        <Grid.Column width={3} className="task-detail">
           task details
-      </Grid.Column>
-        <Grid.Row >
-          <AddToDo />
-        </Grid.Row>
+        </Grid.Column>
       </Grid>
+      <AddToDo />
     </Container>
+    
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

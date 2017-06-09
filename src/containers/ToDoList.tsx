@@ -8,9 +8,9 @@ export function mapStateToProps({ tasks = [] }: StoreState) {
     return { tasks }
 }
 
-export function mapDispatchToProps(dispatch:any) {
+export function mapDispatchToProps(dispatch: any) {
     return {
-        onToggleTask: function(id:string){
+        onToggleTask: function(id: string){
             dispatch(Actions.toggleTask(id))
         }
     }
