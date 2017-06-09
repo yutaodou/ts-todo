@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Grid, Container } from 'semantic-ui-react'
 import { createStore } from 'redux'
 import reducers from './reducers/index'
 import { StoreState } from './types/index'
@@ -12,7 +11,7 @@ import LabelList from './containers/LabelList'
 import ToDoList from './containers/ToDoList'
 import AddToDo from './containers/AddToDo'
 
-import 'semantic-ui-css/semantic.min.css'
+import 'bulma/css/bulma.css'
 import './index.css';
 
 function newStore() {
@@ -25,21 +24,16 @@ const store = newStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <Container className="main-content">
-      <Grid >
-        <Grid.Column width={3} className="label-list">
+    <div>
+      <div className="columns">
           <LabelList />
-        </Grid.Column>
-        <Grid.Column width={9} className="task-list">
           <ToDoList />
-        </Grid.Column>
-        <Grid.Column width={3} className="task-detail">
+        <div className="column">
           task details
-        </Grid.Column>
-      </Grid>
+        </div>
+      </div>
       <AddToDo />
-    </Container>
-    
+    </div>
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

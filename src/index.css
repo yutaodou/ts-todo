@@ -4,30 +4,51 @@ body {
   font-family: sans-serif;
 }
 
-#root {
-  height: 100%;
-}
-
 .main-content {
   height: 100%;
 }
+
 .label-list {
-  background-color: blue;
+  background-color: #00d1b2;
+  padding-right: 0;
 }
+
+.label-item {
+  cursor: pointer;
+  text-align: center;
+}
+
+.label-item a {
+  color: white;
+}
+
 .task-list {
-  background-color: #AAA;
+  background-color: whitesmoke;
+  padding-left: 0;
 }
 
 .task-detail {
   background-color: #ccc;
 }
 
-.label-item {
-  cursor: pointer;
+.todo-item {
+    border-radius: 2px;
+    display: block;
+    padding: 0.5em 0.75em;
 }
 
-.checked.checkbox label, .checked.checkbox label:hover {
+.todo-item .completed {
+  text-decoration: line-through;
   color: #AAA;
-  text-decoration: line-through
 }
 
+
+.add-todo-container {
+  max-width: 40%;
+}
+.add-todo {
+  line-height: 30px;
+  width: 100%;
+  margin: auto;
+  padding-left: 20px;
+}

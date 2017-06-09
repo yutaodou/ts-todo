@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Input } from 'semantic-ui-react'
 
 export interface OnAdd {
     (title: string): void
@@ -17,12 +16,9 @@ function AddToDo({ onAdd }: Props) {
         }
     }
     return (
-        <Input
-            icon='tasks'
-            iconPosition='left'
-            placeholder='Add tasks'
-            size='medium'
-            onKeyPress={handleKeyPress} />
+        <div className="container add-todo-container">
+            <input className="add-todo" type="text" placeholder="new task here" onKeyPress={handleKeyPress}/>
+        </div>
     )
 }
 
