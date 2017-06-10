@@ -10,6 +10,7 @@
     "@types/react-dom": "^15.5.0",
     "@types/react-redux": "^4.4.40",
     "bulma": "^0.4.2",
+    "leancloud-storage": "^2.5.0",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as Model from '../types/index'
+import * as Model from '../model'
 
 export interface OnToggleTask {
     (id: string): void

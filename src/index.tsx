@@ -3,10 +3,10 @@ import * as ReactDOM from 'react-dom';
 
 import { createStore } from 'redux'
 import reducers from './reducers/index'
-import { StoreState } from './types/index'
+import { StoreState } from './model';
 import { Provider } from 'react-redux'
 
-import Storage from './storage/Storage'
+import * as Model from './model'
 import LabelList from './containers/LabelList'
 import ToDoList from './containers/ToDoList'
 import AddToDo from './containers/AddToDo'
@@ -14,20 +14,14 @@ import AddToDo from './containers/AddToDo'
 import 'bulma/css/bulma.css'
 import './index.css';
 
-function newStore() {
-  let store = createStore<StoreState>(reducers, Storage.load());
-  store.subscribe(() => { Storage.save(store.getState()) })
-  return store;
-}
-
-const store = newStore()
+let store = createStore<StoreState>(reducers, Model.INITIAL_STATE);
 
 ReactDOM.render(
   <Provider store={store}>
     <div>
       <div className="columns">
-          <LabelList />
-          <ToDoList />
+        <LabelList />
+        <ToDoList />
         <div className="column">
           task details
         </div>

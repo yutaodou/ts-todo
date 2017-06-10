@@ -1,4 +1,4 @@
-import { StoreState } from '../types/index'
+import { StoreState } from '../model';
 import { connect } from 'react-redux'
 
 import ToDoList from '../components/ToDoList'
@@ -10,9 +10,9 @@ export function mapStateToProps({ tasks = [] }: StoreState) {
 
 export function mapDispatchToProps(dispatch: any) {
     return {
-        onToggleTask: function(id: string){
+        onToggleTask: function (id: string) {
             dispatch(Actions.toggleTask(id))
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ToDoList)
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList)

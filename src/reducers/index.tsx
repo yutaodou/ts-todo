@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import * as Constants from '../constants/index'
-import { ToDo, StoreState, INITIAL_STATE } from '../types/index'
+import { ToDo, StoreState, INITIAL_STATE } from '../model';
 
 const uuid = require('uuid/v4')
 

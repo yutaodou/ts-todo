@@ -1,5 +1,5 @@
 import LabelList from '../components/LabelList'
-import { StoreState } from '../types/index'
+import { StoreState } from '../model'
 import { connect} from 'react-redux'
 
 export function mapStateToProps({currentLabel}:StoreState) {
