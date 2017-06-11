@@ -8,7 +8,7 @@ export interface StoreState {
 }
 
 export interface ToDo {
-    id: string;
+    id: string | undefined;
     title: string;
     completed: boolean;
 }

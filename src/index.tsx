@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers/index'
 import { StoreState } from './model';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
 import * as Model from './model'
 import LabelList from './containers/LabelList'
@@ -14,7 +15,7 @@ import AddToDo from './containers/AddToDo'
 import 'bulma/css/bulma.css'
 import './index.css';
 
-let store = createStore<StoreState>(reducers, Model.INITIAL_STATE);
+let store = createStore<StoreState>(reducers, Model.INITIAL_STATE, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

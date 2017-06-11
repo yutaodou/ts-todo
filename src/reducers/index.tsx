@@ -3,12 +3,11 @@ import { combineReducers } from 'redux'
 import * as Constants from '../constants/index'
 import { ToDo, StoreState, INITIAL_STATE } from '../model';
 
-const uuid = require('uuid/v4')
-
 function tasks(tasks: ToDo[], action: any): ToDo[] {
     switch (action.type) {
         case Constants.ADD_TASK:
-            return tasks.concat({ title: action.title, completed: false, id: uuid() })
+            console.log(JSON.stringify(action.task));
+            return tasks.concat(action.task)
         case Constants.TOGGLE_TASK:
             return tasks.map(task => {
                 if (task.id === action.task) {
