@@ -11,9 +11,10 @@ const ClassNames = {
     ToDo: 'ToDo'
 }
 
+const ToDoObject = AV.Object.extend(ClassNames.ToDo);
+
 class LeanCloudStore {
     static async getInboxItems(): Promise<ToDo[]> {
-
         const query = new AV.Query(ClassNames.ToDo);
         query.equalTo('processed', false);
         const results = await query.find();
@@ -21,14 +22,24 @@ class LeanCloudStore {
     }
 
     static async addToDo(todo: ToDo): Promise<ToDo> {
-        const ToDoObject = AV.Object.extend(ClassNames.ToDo);
-        const toDoObj = new ToDoObject();
+        const todoObj = new ToDoObject();
+        const acl = new AV.ACL();
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+        todoObj.setACL(acl);
         for (var key in todo) {
             if (todo.hasOwnProperty(key)) {
-                toDoObj.set(key, todo[key])
+                todoObj.set(key, todo[key])
             }
         }
-        const result = await <ToDo>toDoObj.save()
+        const result = await <ToDo> todoObj.save()
+        return mapToDo(result);
+    }
+
+    static async toggleToDo(todoId: string, completed: boolean): Promise<ToDo> {
+        var todo = AV.Object.createWithoutData(ClassNames.ToDo, todoId);
+        todo.set('completed', completed);
+        const result = await todo.save();
         return mapToDo(result);
     }
 }

@@ -6,7 +6,6 @@ import { ToDo, StoreState, INITIAL_STATE } from '../model';
 function tasks(tasks: ToDo[], action: any): ToDo[] {
     switch (action.type) {
         case Constants.ADD_TASK:
-            console.log(JSON.stringify(action.task));
             return tasks.concat(action.task)
         case Constants.TOGGLE_TASK:
             return tasks.map(task => {

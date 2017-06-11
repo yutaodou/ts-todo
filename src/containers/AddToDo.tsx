@@ -5,7 +5,6 @@ import * as Actions from '../actions/index'
 function mapDispatchToProperty(dispatch:any) {
     return {
         onAdd: function (task: string) {
-            console.log("component")
             dispatch(Actions.addToDo(task))
         }
     }

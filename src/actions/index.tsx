@@ -8,7 +8,6 @@ export function addToDo(title: string) {
             id: undefined,
             completed: false
         }).then(todo => {
-            console.log("here");
             dispatch({
                 type: Constants.ADD_TASK,
                 task: todo
@@ -24,9 +23,13 @@ export function changeLabel(label: string) {
     }
 }
 
-export function toggleTask(id: string) {
-    return {
-        type: Constants.TOGGLE_TASK,
-        task: id
+export function toggleTask(id: string, completed: boolean) {
+    return (dispatch: any) => {
+        Storage.toggleToDo(id, completed).then(todo => {
+            dispatch({
+                type: Constants.TOGGLE_TASK,
+                task: id
+            })
+        })
     }
 }
